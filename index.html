@@ -57,7 +57,7 @@
         <a href="#montagem" class="transition hover:text-yellow-400">Montagem</a>
 </nav>
 
-        <a href="#" class="rounded-2xl bg-odog-amarelo px-4 py-3 text-sm font-black text-black transition hover:scale-105 md:px-6">
+        <a data-whatsapp-geral="true" href="#" class="botao-whatsapp rounded-2xl bg-odog-amarelo px-4 py-3 text-sm font-black text-black transition hover:scale-105 md:px-6">
           Pedir agora
         </a>
 
@@ -106,8 +106,8 @@
           CARDÁPIO
         </a>
 
-        <a href="#"
-          class="rounded-2xl border border-white/10 animar-toque bg-white/5 borda-marca-odog px-8 py-5 text-center text-lg font-black text-white backdrop-blur-xl transition hover:bg-white/10">
+        <a data-whatsapp-geral="true" href="#"
+          class="botao-whatsapp rounded-2xl border border-white/10 animar-toque bg-white/5 borda-marca-odog px-8 py-5 text-center text-lg font-black text-white backdrop-blur-xl transition hover:bg-white/10">
           CHAMAR NO ZAP
         </a>
 
@@ -191,20 +191,12 @@
 
       <div class="scrollbar-hide flex gap-3 overflow-x-auto pb-2">
 
-        <button class="whitespace-nowrap rounded-2xl bg-yellow-400 animar-toque px-6 py-3 text-sm font-black text-black shadow-[0_0_30px_rgba(255,204,0,.35)]">
+        <button type="button" data-categoria-cardapio="combos" class="botao-categoria-cardapio whitespace-nowrap rounded-2xl bg-yellow-400 animar-toque px-6 py-3 text-sm font-black text-black">
           Combos
         </button>
 
-        <button class="whitespace-nowrap rounded-2xl border border-white/10 animar-toque bg-white/5 borda-marca-odog px-6 py-3 text-sm font-black text-white backdrop-blur-xl">
+        <button type="button" data-categoria-cardapio="tradicionais" class="botao-categoria-cardapio whitespace-nowrap rounded-2xl border border-yellow-400/70 animar-toque bg-yellow-400 borda-marca-odog px-6 py-3 text-sm font-black text-black backdrop-blur-xl">
           Tradicionais
-        </button>
-
-        <button class="whitespace-nowrap rounded-2xl border border-white/10 animar-toque bg-white/5 px-6 py-3 text-sm font-black text-white backdrop-blur-xl">
-          Batatas
-        </button>
-
-        <button class="whitespace-nowrap rounded-2xl border border-white/10 animar-toque bg-white/5 px-6 py-3 text-sm font-black text-white backdrop-blur-xl">
-          Bebidas
         </button>
 
       </div>
@@ -213,7 +205,7 @@
 
     <div class="space-y-5">
 
-      <article class="group relative overflow-hidden rounded-[34px] border border-yellow-400/15 bg-black/40 p-4 backdrop-blur-2xl transition duration-300 hover:-translate-y-1 hover:border-yellow-400/30 hover:shadow-[0_20px_80px_rgba(0,0,0,.45)]">
+      <article data-item-cardapio data-categoria-item="combos" class="group relative overflow-hidden rounded-[34px] border border-yellow-400/15 bg-black/40 p-4 backdrop-blur-2xl transition duration-300 hover:-translate-y-1 hover:border-yellow-400/30 hover:shadow-[0_20px_80px_rgba(0,0,0,.45)]">
 
         <div class="absolute top-0 right-0 h-40 w-40 rounded-full bg-yellow-400/10 blur-[80px]"></div>
 
@@ -227,7 +219,7 @@
               MAIS PEDIDO
             </div>
 
-            <h3 class="text-3xl font-black text-white">
+            <h3 class="titulo-produto-cardapio text-3xl font-black text-black">
               Ô Combo de 15
             </h3>
 
@@ -247,7 +239,7 @@
                 </strong>
               </div>
 
-              <button class="flex items-center gap-3 rounded-2xl bg-yellow-400 animar-toque px-6 py-4 font-black text-black transition hover:scale-105">
+              <button type="button" data-produto-whatsapp="Ô Combo de 15" data-preco-whatsapp="R$ 15" class="flex items-center gap-3 rounded-2xl bg-yellow-400 animar-toque px-6 py-4 font-black text-black transition hover:scale-105">
 
                 <span class="text-xl">+</span>
                 Adicionar
@@ -262,7 +254,7 @@
 
       </article>
 
-      <article class="group relative overflow-hidden rounded-[34px] border border-yellow-400/15 bg-black/40 p-4 backdrop-blur-2xl transition duration-300 hover:-translate-y-1 hover:border-yellow-400/30 hover:shadow-[0_20px_80px_rgba(0,0,0,.45)]">
+      <article data-item-cardapio data-categoria-item="combos" class="group relative overflow-hidden rounded-[34px] border border-yellow-400/15 bg-black/40 p-4 backdrop-blur-2xl transition duration-300 hover:-translate-y-1 hover:border-yellow-400/30 hover:shadow-[0_20px_80px_rgba(0,0,0,.45)]">
 
         <div class="absolute bottom-0 left-0 h-40 w-40 rounded-full bg-red-600/10 blur-[80px]"></div>
 
@@ -276,7 +268,7 @@
               COMBO
             </div>
 
-            <h3 class="text-3xl font-black text-white">
+            <h3 class="titulo-produto-cardapio text-3xl font-black text-white">
               Ô Combo de 20
             </h3>
 
@@ -296,7 +288,7 @@
                 </strong>
               </div>
 
-              <button class="flex items-center gap-3 rounded-2xl border border-white/10 animar-toque bg-white/10 px-6 py-4 font-black text-white backdrop-blur-xl transition hover:bg-yellow-400 hover:text-black">
+              <button type="button" data-produto-whatsapp="Ô Combo de 20" data-preco-whatsapp="R$ 20" class="flex items-center gap-3 rounded-2xl border border-yellow-400/70 animar-toque bg-yellow-400 px-6 py-4 font-black text-black backdrop-blur-xl transition hover:bg-yellow-300 hover:text-black">
 
                 <span class="text-xl">+</span>
                 Adicionar
@@ -311,7 +303,7 @@
 
       </article>
 
-      <article class="group relative overflow-hidden rounded-[34px] border border-yellow-400/15 bg-black/40 p-4 backdrop-blur-2xl transition duration-300 hover:-translate-y-1 hover:border-yellow-400/30 hover:shadow-[0_20px_80px_rgba(0,0,0,.45)]">
+      <article data-item-cardapio data-categoria-item="tradicionais" class="group relative overflow-hidden rounded-[34px] border border-yellow-400/15 bg-black/40 p-4 backdrop-blur-2xl transition duration-300 hover:-translate-y-1 hover:border-yellow-400/30 hover:shadow-[0_20px_80px_rgba(0,0,0,.45)]">
 
         <div class="relative flex flex-col gap-5 md:flex-row md:items-center">
 
@@ -323,7 +315,7 @@
               HOT DOG
             </div>
 
-            <h3 class="text-3xl font-black text-white">
+            <h3 class="titulo-produto-cardapio text-3xl font-black text-white">
               Tradicional Triplo
             </h3>
 
@@ -343,7 +335,7 @@
                 </strong>
               </div>
 
-              <button class="flex items-center gap-3 rounded-2xl bg-red-600 animar-toque px-6 py-4 font-black text-white transition hover:scale-105">
+              <button type="button" data-produto-whatsapp="Tradicional Triplo" data-preco-whatsapp="R$ 17" class="flex items-center gap-3 rounded-2xl bg-yellow-400 animar-toque px-6 py-4 font-black text-black transition hover:scale-105">
 
                 <span class="text-xl">+</span>
                 Adicionar
@@ -360,8 +352,81 @@
 
     </div>
 
-  </div>
+  
+      <article data-item-cardapio 
+      <article data-item-cardapio data-categoria-item="tradicionais" class="group relative overflow-hidden rounded-[34px] border border-yellow-400/15 bg-black/40 p-4 backdrop-blur-2xl transition duration-300 hover:-translate-y-1 hover:border-yellow-400/30 hover:shadow-[0_20px_80px_rgba(0,0,0,.45)]">
+        <div class="relative flex flex-col gap-5 md:flex-row md:items-center">
+          <div class="flex h-40 w-full items-center justify-center rounded-[28px] bg-gradient-to-br from-red-800 via-orange-500 to-yellow-400 text-6xl md:w-56">🌭</div>
 
+          <div class="flex-1">
+            <div class="mb-3 inline-flex rounded-full bg-white/10 px-3 py-1 text-xs font-black text-white">
+              HOT DOG
+            </div>
+
+            <h3 class="titulo-produto-cardapio text-3xl font-black text-white">
+              Hot Dog Tradicional
+            </h3>
+
+            <p class="mt-3 max-w-2xl text-sm leading-relaxed text-zinc-400 md:text-base">
+              Delicioso hot dog tradicional com 1 salsicha.
+            </p>
+
+            <div class="mt-6 flex items-center justify-between">
+              <div>
+                <span class="block text-xs uppercase tracking-[.25em] text-zinc-500">
+                  A partir de
+                </span>
+
+                <strong class="text-4xl font-black text-yellow-400">
+                  R$ 13
+                </strong>
+              </div>
+
+              <button type="button" data-produto-whatsapp="Hot Dog Tradicional" data-preco-whatsapp="R$ 13" class="flex items-center gap-3 rounded-2xl border border-yellow-400/70 bg-yellow-400 px-6 py-4 font-black text-black backdrop-blur-xl transition hover:bg-yellow-300 hover:text-black">
+                <span class="text-xl">+</span>
+                Adicionar
+              </button>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article data-item-cardapio data-categoria-item="tradicionais" class="group relative overflow-hidden rounded-[34px] border border-yellow-400/15 bg-black/40 p-4 backdrop-blur-2xl transition duration-300 hover:-translate-y-1 hover:border-yellow-400/30 hover:shadow-[0_20px_80px_rgba(0,0,0,.45)]">
+        <div class="relative flex flex-col gap-5 md:flex-row md:items-center">
+          <div class="flex h-40 w-full items-center justify-center rounded-[28px] bg-gradient-to-br from-yellow-500 via-red-500 to-red-900 text-6xl md:w-56">🌭🌭</div>
+
+          <div class="flex-1">
+            <div class="mb-3 inline-flex rounded-full bg-white/10 px-3 py-1 text-xs font-black text-white">
+              HOT DOG
+            </div>
+
+            <h3 class="titulo-produto-cardapio text-3xl font-black text-white">
+              Hot Dog Tradicional Duplo
+            </h3>
+
+            <p class="mt-3 max-w-2xl text-sm leading-relaxed text-zinc-400 md:text-base">
+              Delicioso hot dog tradicional com duas salsichas e sabor de derreter na boca.
+            </p>
+
+            <div class="mt-6 flex items-center justify-between">
+              <div>
+                <span class="block text-xs uppercase tracking-[.25em] text-zinc-500">
+                  A partir de
+                </span>
+
+                <strong class="text-4xl font-black text-yellow-400">
+                  R$ 15
+                </strong>
+              </div>
+
+              <button type="button" data-produto-whatsapp="Hot Dog Tradicional Duplo" data-preco-whatsapp="R$ 15" class="flex items-center gap-3 rounded-2xl border border-yellow-400/70 bg-yellow-400 px-6 py-4 font-black text-black backdrop-blur-xl transition hover:bg-yellow-300 hover:text-black">
+                <span class="text-xl">+</span>
+                Adicionar
+              </button>
+            </div>
+          </div>
+        </div>
+      </article>
 </section>
 
     <section  id="combos" class="revelar-odog px-5 pb-24">
@@ -372,7 +437,6 @@
           <div class="grid items-center gap-6 p-8 md:grid-cols-[1fr_.8fr] md:p-12">
 
             <div>
-              <p class="text-sm font-black uppercase tracking-[.35em] text-odog-amarelo">Destaque</p>
               <h3 class="mt-4 text-4xl font-black leading-none md:text-6xl">
                 Combo é golpe baixo.
               </h3>
@@ -420,18 +484,18 @@
       </p>
     </div>
 
-    <div class="grid gap-5 md:grid-cols-3">
-      <article class="selo-odog borda-marca-odog rounded-[34px] bg-black/45 p-7 backdrop-blur-xl">
+    <div class="grid gap-5 md:grid-cols-2">
+      <article data-item-cardapio data-categoria-item="tradicionais" class="selo-odog borda-marca-odog rounded-[34px] bg-black/45 p-7 backdrop-blur-xl">
         <span class="text-4xl">🌭</span>
         <h3 class="mt-6 text-3xl font-black text-white">Dog bruto</h3>
       </article>
 
-      <article class="selo-odog borda-marca-odog rounded-[34px] bg-black/45 p-7 backdrop-blur-xl">
+      <article data-item-cardapio data-categoria-item="tradicionais" class="selo-odog borda-marca-odog rounded-[34px] bg-black/45 p-7 backdrop-blur-xl">
         <span class="text-4xl">🔥</span>
         <h3 class="mt-6 text-3xl font-black text-white">Fora do óbvio</h3>
       </article>
 
-      <article class="selo-odog borda-marca-odog rounded-[34px] bg-black/45 p-7 backdrop-blur-xl">
+      <article data-item-cardapio data-categoria-item="tradicionais" class="selo-odog borda-marca-odog rounded-[34px] bg-black/45 p-7 backdrop-blur-xl">
         <span class="text-4xl">⚡</span>
         <h3 class="mt-6 text-3xl font-black text-white">Chama no zap</h3>
       </article>
@@ -473,7 +537,7 @@
             </div>
           </div>
 
-          <div class="grid gap-3 sm:grid-cols-3">
+          <div class="grid gap-3 sm:grid-cols-2">
             <button type="button" class="montagem-opcao ativo rounded-[24px] border border-white/10 bg-white/5 p-4 text-left transition hover:border-yellow-400/40" data-grupo="base" data-nome="Tradicional" data-preco="13">
               <div class="flex items-center justify-between">
                 <span class="text-3xl">🌭</span>
@@ -515,15 +579,6 @@
               </div>
               <strong class="mt-4 block text-lg text-white">Batata palha</strong>
               <small class="text-zinc-400">Incluso</small>
-            </button>
-
-            <button type="button" class="montagem-opcao rounded-[24px] border border-white/10 bg-white/5 p-4 text-left transition hover:border-yellow-400/40" data-grupo="extra" data-nome="Cheddar" data-preco="2">
-              <div class="flex items-center justify-between">
-                <span class="text-3xl">🧀</span>
-                <span class="check-montagem rounded-full bg-yellow-400 px-2 py-1 text-xs font-black text-black">OK</span>
-              </div>
-              <strong class="mt-4 block text-lg text-white">Cheddar</strong>
-              <small class="text-zinc-400">+ R$ 2,00</small>
             </button>
 
             <button type="button" class="montagem-opcao rounded-[24px] border border-white/10 bg-white/5 p-4 text-left transition hover:border-yellow-400/40" data-grupo="extra" data-nome="Fritas 50g" data-preco="2">
@@ -607,7 +662,7 @@
 
 <section  id="sobre" class="revelar-odog px-5 pb-32">
 
-      <div class="mx-auto grid max-w-7xl gap-6 md:grid-cols-3">
+      <div class="mx-auto grid max-w-7xl gap-6 md:grid-cols-2">
 
         <div class="vidro rounded-[34px] p-8">
           <span class="text-4xl">🌭</span>

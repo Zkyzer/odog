@@ -239,3 +239,106 @@ document.addEventListener('mousemove', (e) => {
 
   logo.style.transform = `translate(${x}px, ${y}px)`;
 });
+
+
+/* ===== FILTRO FUNCIONAL DO CARDÁPIO - SEM BEBIDAS ===== */
+document.addEventListener("DOMContentLoaded", () => {
+  const botoesCategoriaCardapio = document.querySelectorAll("[data-categoria-cardapio]");
+  const itensCardapio = document.querySelectorAll("[data-item-cardapio]");
+
+  if (!botoesCategoriaCardapio.length || !itensCardapio.length) {
+    return;
+  }
+
+  function filtrarCardapio(categoriaSelecionada) {
+    itensCardapio.forEach((itemCardapio) => {
+      const categoriaItem = itemCardapio.getAttribute("data-categoria-item");
+      const deveMostrar = categoriaItem === categoriaSelecionada;
+
+      itemCardapio.classList.toggle("item-cardapio-oculto", !deveMostrar);
+      itemCardapio.setAttribute("aria-hidden", String(!deveMostrar));
+    });
+
+    botoesCategoriaCardapio.forEach((botaoCategoria) => {
+      const estaAtivo = botaoCategoria.getAttribute("data-categoria-cardapio") === categoriaSelecionada;
+      botaoCategoria.classList.toggle("ativo", estaAtivo);
+    });
+  }
+
+  botoesCategoriaCardapio.forEach((botaoCategoria) => {
+    botaoCategoria.addEventListener("click", () => {
+      filtrarCardapio(botaoCategoria.getAttribute("data-categoria-cardapio"));
+    });
+  });
+
+  filtrarCardapio("combos");
+});
+
+
+/* ===== INTERATIVIDADE WHATSAPP Ô DOG ===== */
+document.addEventListener("DOMContentLoaded", () => {
+  /*
+    Coloque aqui o número real da lanchonete.
+    Formato recomendado: 55 + DDD + número, somente números.
+    Exemplo: const numeroWhatsappOdog = "5548999999999";
+  */
+  const numeroWhatsappOdog = "";
+
+  function criarLinkWhatsapp(mensagem) {
+    const textoMensagem = encodeURIComponent(mensagem);
+
+    if (numeroWhatsappOdog) {
+      return `https://wa.me/${numeroWhatsappOdog}?text=${textoMensagem}`;
+    }
+
+    return `https://wa.me/?text=${textoMensagem}`;
+  }
+
+  function abrirWhatsapp(mensagem) {
+    window.open(criarLinkWhatsapp(mensagem), "_blank", "noopener,noreferrer");
+  }
+
+  const botoesProdutoWhatsapp = document.querySelectorAll("[data-produto-whatsapp]");
+
+  botoesProdutoWhatsapp.forEach((botaoProduto) => {
+    botaoProduto.addEventListener("click", () => {
+      const nomeProduto = botaoProduto.getAttribute("data-produto-whatsapp") || "Produto Ô DOG";
+      const precoProduto = botaoProduto.getAttribute("data-preco-whatsapp") || "";
+
+      const mensagem = [
+        "Olá! Quero fazer um pedido na Ô DOG.",
+        "",
+        `Produto: ${nomeProduto}`,
+        precoProduto ? `Valor: ${precoProduto}` : "",
+        "",
+        "Pode me passar mais informações?"
+      ].filter(Boolean).join("\n");
+
+      abrirWhatsapp(mensagem);
+    });
+  });
+
+  const botoesWhatsappGeral = document.querySelectorAll("[data-whatsapp-geral]");
+
+  botoesWhatsappGeral.forEach((botaoWhatsapp) => {
+    botaoWhatsapp.addEventListener("click", (evento) => {
+      evento.preventDefault();
+
+      abrirWhatsapp("Olá! Vim pelo site da Ô DOG e quero fazer um pedido.");
+    });
+  });
+
+  const botaoFinalizarMontagem = document.getElementById("botaoFinalizarMontagem");
+
+  if (botaoFinalizarMontagem) {
+    botaoFinalizarMontagem.addEventListener("click", (evento) => {
+      const hrefAtual = botaoFinalizarMontagem.getAttribute("href");
+
+      if (!hrefAtual || hrefAtual === "#") {
+        evento.preventDefault();
+        abrirWhatsapp("Olá! Quero montar um Ô DOG pelo site.");
+      }
+    });
+  }
+});
+
