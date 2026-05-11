@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Ô DOG — Dog bruto & batatas</title>
+
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            odog: {
+              amarelo: '#ffcc00',
+              vermelho: '#d82418',
+              escuro: '#090705',
+              marrom: '#1a0f0a',
+              creme: '#fff4d8'
+            }
+          },
+          boxShadow: {
+            brilho: '0 0 45px rgba(255, 204, 0, .35)',
+            card: '0 24px 70px rgba(0, 0, 0, .35)'
+          }
+        }
+      }
+    }
+  </script>
+  <!-- Estilos personalizados do projeto -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body class="min-h-screen text-white overflow-x-hidden">
+
+  <header class="fixed top-0 left-0 z-50 w-full">
+    <div class="mx-auto max-w-7xl px-4 pt-4">
+      <div class="vidro flex items-center justify-between rounded-[28px] px-4 py-3 shadow-card md:px-6">
+
+        <a href="#inicio" class="flex items-center gap-3">
+          <img src="assets/logo-odog.png" alt="Logo Ô DOG" class="h-12 w-12 rounded-full object-cover md:h-14 md:w-14" />
+
+          <div>
+            <h1 class="text-lg font-black leading-none text-odog-amarelo md:text-xl">Ô DOG</h1>
+            <p class="text-xs text-zinc-400">Dog bruto & batatas</p>
+          </div>
+        </a>
+
+        <nav class="hidden items-center gap-8 text-sm font-bold text-zinc-300 md:flex">
+          <a href="#inicio" class="transition hover:text-odog-amarelo">Início</a>
+          <a href="#cardapio" class="transition hover:text-odog-amarelo">Cardápio</a>
+          <a href="#combos" class="transition hover:text-odog-amarelo">Combos</a>
+          <a href="#sobre" class="transition hover:text-odog-amarelo">Sobre</a>
+        <a href="#montagem" class="transition hover:text-yellow-400">Montagem</a>
+</nav>
+
+        <a href="#" class="rounded-2xl bg-odog-amarelo px-4 py-3 text-sm font-black text-black transition hover:scale-105 md:px-6">
+          Pedir agora
+        </a>
+
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    
+<section  id="inicio" class="revelar-odog relative min-h-screen overflow-hidden">
+
+  <div class="absolute inset-0 bg-black"></div>
+
+  <div class="absolute -top-20 -left-20 h-[420px] w-[420px] rounded-full bg-red-600/40 blur-[140px]"></div>
+  <div class="absolute top-40 right-0 h-[420px] w-[420px] rounded-full bg-yellow-400/30 blur-[160px]"></div>
+  <div class="absolute bottom-0 left-1/2 h-[320px] w-[320px] -translate-x-1/2 rounded-full bg-orange-500/20 blur-[140px]"></div>
+
+  <div class="relative z-10 mx-auto grid min-h-screen max-w-7xl items-center gap-10 px-6 pt-36 pb-24 lg:grid-cols-[1fr_.9fr]">
+
+    <div>
+
+      <div class="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 borda-marca-odog px-4 py-2 backdrop-blur-xl">
+        <span class="h-2 w-2 animate-pulse rounded-full bg-yellow-400"></span>
+        <span class="text-sm font-semibold tracking-wide text-zinc-300">
+          NÃO É SÓ LANCHE
+        </span>
+      </div>
+
+      <h1 class="max-w-4xl marca-odog text-6xl font-black leading-[.85] tracking-tight text-white md:text-8xl xl:text-[9rem]">
+        Ô DOG
+        <span class="block text-yellow-400 texto-impacto-odog">
+          FORA DO
+        </span>
+        ÓBVIO.
+      </h1>
+
+      <p class="mt-8 max-w-xl text-lg leading-relaxed text-zinc-300 md:text-xl">
+        Dog bruto, batata no jeito e aquele sabor que não tenta ser básico.
+      </p>
+
+      <div class="mt-10 flex flex-col gap-4 sm:flex-row">
+
+        <a href="#cardapio"
+          class="btn-brilho-odog rounded-2xl bg-yellow-400 animar-toque px-8 py-5 text-center text-lg font-black text-black transition duration-300 hover:scale-105 hover:shadow-[0_0_45px_rgba(255,204,0,.45)]">
+          CARDÁPIO
+        </a>
+
+        <a href="#"
+          class="rounded-2xl border border-white/10 animar-toque bg-white/5 borda-marca-odog px-8 py-5 text-center text-lg font-black text-white backdrop-blur-xl transition hover:bg-white/10">
+          CHAMAR NO ZAP
+        </a>
+
+      </div>
+
+    </div>
+
+    <div class="relative flex items-center justify-center">
+
+      <div class="absolute h-[520px] w-[520px] rounded-full bg-yellow-400/20 blur-[140px]"></div>
+
+      <div id="logoParallax"
+        class="relative transition-transform duration-200 ease-out">
+
+        <img
+          src="assets/logo-odog.png"
+          alt="Logo Ô DOG"
+          class="w-full max-w-[720px] scale-[1.35] rotate-[-8deg] drop-shadow-[0_0_60px_rgba(255,204,0,.35)]"
+        />
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- FAIXA Ô DOG EM LOOP CONTÍNUO -->
+<section class="faixa-loop-odog" aria-label="Slogans da Ô DOG">
+  <div class="faixa-loop-odog__trilho">
+
+    <div class="faixa-loop-odog__grupo">
+      <span>Ô DOG fora do óbvio</span>
+      <span class="faixa-loop-odog__ponto">•</span>
+      <span>Dog bruto</span>
+      <span class="faixa-loop-odog__ponto">•</span>
+      <span>Batata no jeito</span>
+      <span class="faixa-loop-odog__ponto">•</span>
+      <span>Chama no zap</span>
+      <span class="faixa-loop-odog__ponto">•</span>
+      <span>Sabor sem enrolação</span>
+      <span class="faixa-loop-odog__ponto">•</span>
+    </div>
+
+    <div class="faixa-loop-odog__grupo" aria-hidden="true">
+      <span>Ô DOG fora do óbvio</span>
+      <span class="faixa-loop-odog__ponto">•</span>
+      <span>Dog bruto</span>
+      <span class="faixa-loop-odog__ponto">•</span>
+      <span>Batata no jeito</span>
+      <span class="faixa-loop-odog__ponto">•</span>
+      <span>Chama no zap</span>
+      <span class="faixa-loop-odog__ponto">•</span>
+      <span>Sabor sem enrolação</span>
+      <span class="faixa-loop-odog__ponto">•</span>
+    </div>
+
+  </div>
+</section>
+
+    
+<section  id="cardapio" class="revelar-odog relative px-4 py-24 overflow-hidden">
+
+  <div class="absolute top-20 left-0 h-72 w-72 rounded-full bg-red-600/20 blur-[120px]"></div>
+  <div class="absolute bottom-0 right-0 h-80 w-80 rounded-full bg-yellow-400/20 blur-[130px]"></div>
+
+  <div class="relative z-10 mx-auto max-w-7xl">
+
+    <div class="mb-10 flex flex-col gap-4">
+
+      <div>
+        <p class="text-sm font-black uppercase tracking-[.35em] text-yellow-400">
+          Cardápio Ô DOG
+        </p>
+
+        <h2 class="mt-3 text-4xl font-black text-white md:text-6xl">
+          Escolha seu dog.
+        </h2>
+      </div>
+
+      <div class="scrollbar-hide flex gap-3 overflow-x-auto pb-2">
+
+        <button class="whitespace-nowrap rounded-2xl bg-yellow-400 animar-toque px-6 py-3 text-sm font-black text-black shadow-[0_0_30px_rgba(255,204,0,.35)]">
+          Combos
+        </button>
+
+        <button class="whitespace-nowrap rounded-2xl border border-white/10 animar-toque bg-white/5 borda-marca-odog px-6 py-3 text-sm font-black text-white backdrop-blur-xl">
+          Tradicionais
+        </button>
+
+        <button class="whitespace-nowrap rounded-2xl border border-white/10 animar-toque bg-white/5 px-6 py-3 text-sm font-black text-white backdrop-blur-xl">
+          Batatas
+        </button>
+
+        <button class="whitespace-nowrap rounded-2xl border border-white/10 animar-toque bg-white/5 px-6 py-3 text-sm font-black text-white backdrop-blur-xl">
+          Bebidas
+        </button>
+
+      </div>
+
+    </div>
+
+    <div class="space-y-5">
+
+      <article class="group relative overflow-hidden rounded-[34px] border border-yellow-400/15 bg-black/40 p-4 backdrop-blur-2xl transition duration-300 hover:-translate-y-1 hover:border-yellow-400/30 hover:shadow-[0_20px_80px_rgba(0,0,0,.45)]">
+
+        <div class="absolute top-0 right-0 h-40 w-40 rounded-full bg-yellow-400/10 blur-[80px]"></div>
+
+        <div class="relative flex flex-col gap-5 md:flex-row md:items-center">
+
+          <div class="h-40 w-full rounded-[28px] bg-gradient-to-br from-red-700 via-orange-500 to-yellow-400 md:w-56"></div>
+
+          <div class="flex-1">
+
+            <div class="mb-3 inline-flex rounded-full bg-yellow-400/15 px-3 py-1 text-xs font-black text-yellow-400">
+              MAIS PEDIDO
+            </div>
+
+            <h3 class="text-3xl font-black text-white">
+              Ô Combo de 15
+            </h3>
+
+            <p class="mt-3 max-w-2xl text-sm leading-relaxed text-zinc-400 md:text-base">
+              Hot dog tradicional com fritas crocantes e coca mini.
+            </p>
+
+            <div class="mt-6 flex items-center justify-between">
+
+              <div>
+                <span class="block text-xs uppercase tracking-[.25em] text-zinc-500">
+                  A partir de
+                </span>
+
+                <strong class="text-4xl font-black text-yellow-400">
+                  R$ 15
+                </strong>
+              </div>
+
+              <button class="flex items-center gap-3 rounded-2xl bg-yellow-400 animar-toque px-6 py-4 font-black text-black transition hover:scale-105">
+
+                <span class="text-xl">+</span>
+                Adicionar
+
+              </button>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </article>
+
+      <article class="group relative overflow-hidden rounded-[34px] border border-yellow-400/15 bg-black/40 p-4 backdrop-blur-2xl transition duration-300 hover:-translate-y-1 hover:border-yellow-400/30 hover:shadow-[0_20px_80px_rgba(0,0,0,.45)]">
+
+        <div class="absolute bottom-0 left-0 h-40 w-40 rounded-full bg-red-600/10 blur-[80px]"></div>
+
+        <div class="relative flex flex-col gap-5 md:flex-row md:items-center">
+
+          <div class="h-40 w-full rounded-[28px] bg-gradient-to-br from-yellow-500 via-red-500 to-red-900 md:w-56"></div>
+
+          <div class="flex-1">
+
+            <div class="mb-3 inline-flex rounded-full bg-white/10 px-3 py-1 text-xs font-black text-white">
+              COMBO
+            </div>
+
+            <h3 class="text-3xl font-black text-white">
+              Ô Combo de 20
+            </h3>
+
+            <p class="mt-3 max-w-2xl text-sm leading-relaxed text-zinc-400 md:text-base">
+              Hot dog duplo, fritas e coca mini com sabor absurdo.
+            </p>
+
+            <div class="mt-6 flex items-center justify-between">
+
+              <div>
+                <span class="block text-xs uppercase tracking-[.25em] text-zinc-500">
+                  A partir de
+                </span>
+
+                <strong class="text-4xl font-black text-yellow-400">
+                  R$ 20
+                </strong>
+              </div>
+
+              <button class="flex items-center gap-3 rounded-2xl border border-white/10 animar-toque bg-white/10 px-6 py-4 font-black text-white backdrop-blur-xl transition hover:bg-yellow-400 hover:text-black">
+
+                <span class="text-xl">+</span>
+                Adicionar
+
+              </button>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </article>
+
+      <article class="group relative overflow-hidden rounded-[34px] border border-yellow-400/15 bg-black/40 p-4 backdrop-blur-2xl transition duration-300 hover:-translate-y-1 hover:border-yellow-400/30 hover:shadow-[0_20px_80px_rgba(0,0,0,.45)]">
+
+        <div class="relative flex flex-col gap-5 md:flex-row md:items-center">
+
+          <div class="h-40 w-full rounded-[28px] bg-gradient-to-br from-red-950 via-red-600 to-yellow-400 md:w-56"></div>
+
+          <div class="flex-1">
+
+            <div class="mb-3 inline-flex rounded-full bg-white/10 px-3 py-1 text-xs font-black text-white">
+              HOT DOG
+            </div>
+
+            <h3 class="text-3xl font-black text-white">
+              Tradicional Triplo
+            </h3>
+
+            <p class="mt-3 max-w-2xl text-sm leading-relaxed text-zinc-400 md:text-base">
+              Três salsichas, molho artesanal e aquele cheddar absurdo.
+            </p>
+
+            <div class="mt-6 flex items-center justify-between">
+
+              <div>
+                <span class="block text-xs uppercase tracking-[.25em] text-zinc-500">
+                  A partir de
+                </span>
+
+                <strong class="text-4xl font-black text-yellow-400">
+                  R$ 17
+                </strong>
+              </div>
+
+              <button class="flex items-center gap-3 rounded-2xl bg-red-600 animar-toque px-6 py-4 font-black text-white transition hover:scale-105">
+
+                <span class="text-xl">+</span>
+                Adicionar
+
+              </button>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </article>
+
+    </div>
+
+  </div>
+
+</section>
+
+    <section  id="combos" class="revelar-odog px-5 pb-24">
+
+      <div class="mx-auto max-w-7xl">
+        <div class="overflow-hidden rounded-[42px] border border-odog-amarelo/20 bg-gradient-to-br from-odog-vermelho via-[#9c190e] to-[#341008] shadow-card">
+
+          <div class="grid items-center gap-6 p-8 md:grid-cols-[1fr_.8fr] md:p-12">
+
+            <div>
+              <p class="text-sm font-black uppercase tracking-[.35em] text-odog-amarelo">Destaque</p>
+              <h3 class="mt-4 text-4xl font-black leading-none md:text-6xl">
+                Combo é golpe baixo.
+              </h3>
+
+              <p class="mt-5 max-w-2xl text-zinc-100">
+                Peça já seu Ô COMBO, com hot dog + fritas + coca mini.
+              </p>
+
+              <a href="#" class="mt-8 inline-flex rounded-2xl bg-odog-amarelo px-8 py-4 font-black text-black transition hover:scale-105">
+                Pedir o combo brabo
+              </a>
+            </div>
+
+            <div class="rounded-[34px] bg-black/20 p-6">
+              <div class="mb-4 flex items-center justify-between border-b border-white/10 pb-4">
+                <span class="font-bold">Ô Combo de 15</span>
+                <strong class="text-odog-amarelo">R$ 15,00</strong>
+              </div>
+
+              <div class="flex items-center justify-between">
+                <span class="font-bold">Ô Combo de 20</span>
+                <strong class="text-odog-amarelo">R$ 20,00</strong>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+    </section>
+
+    
+<!-- BLOCO DE PERSONALIDADE DA MARCA -->
+<section  class="revelar-odog relative overflow-hidden px-5 py-24 grade-odog">
+  <div class="absolute left-0 top-10 h-72 w-72 rounded-full bg-red-600/20 blur-[120px]"></div>
+  <div class="absolute bottom-0 right-0 h-80 w-80 rounded-full bg-yellow-400/20 blur-[130px]"></div>
+
+  <div class="relative z-10 mx-auto max-w-7xl">
+    <div class="mb-10 max-w-3xl">
+      <h2 class="marca-odog marca-odog-mobile mt-4 text-5xl font-black leading-[.9] text-white md:text-7xl">
+        Não é só lanche.
+        <span class="block text-yellow-400">É presença.</span>
+      </h2>
+      </p>
+    </div>
+
+    <div class="grid gap-5 md:grid-cols-3">
+      <article class="selo-odog borda-marca-odog rounded-[34px] bg-black/45 p-7 backdrop-blur-xl">
+        <span class="text-4xl">🌭</span>
+        <h3 class="mt-6 text-3xl font-black text-white">Dog bruto</h3>
+      </article>
+
+      <article class="selo-odog borda-marca-odog rounded-[34px] bg-black/45 p-7 backdrop-blur-xl">
+        <span class="text-4xl">🔥</span>
+        <h3 class="mt-6 text-3xl font-black text-white">Fora do óbvio</h3>
+      </article>
+
+      <article class="selo-odog borda-marca-odog rounded-[34px] bg-black/45 p-7 backdrop-blur-xl">
+        <span class="text-4xl">⚡</span>
+        <h3 class="mt-6 text-3xl font-black text-white">Chama no zap</h3>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- SESSÃO MONTAGEM INTERATIVA DO LANCHE -->
+<section  id="montagem" class="revelar-odog secao-montagem-odog relative scroll-mt-28 overflow-hidden px-5 py-24">
+  <div class="absolute left-0 top-10 h-80 w-80 rounded-full bg-red-600/20 blur-[130px]"></div>
+  <div class="absolute bottom-0 right-0 h-96 w-96 rounded-full bg-yellow-400/20 blur-[150px]"></div>
+
+  <div class="relative z-10 mx-auto max-w-7xl">
+
+    <div class="mb-12 max-w-3xl">
+      <p class="text-sm font-black uppercase tracking-[.35em] text-yellow-400">
+        Montagem Ô DOG
+      </p>
+
+      <h2 class="mt-4 text-5xl font-black leading-[.9] text-white md:text-7xl">
+        Monte seu
+        <span class="block text-yellow-400">dog bruto.</span>
+      </h2>
+
+      <p class="mt-6 text-lg leading-relaxed text-zinc-300">
+        Escolha os ingredientes, veja o preview do lanche mudando em tempo real e finalize o pedido no WhatsApp.
+      </p>
+    </div>
+
+    <div class="grid gap-8 lg:grid-cols-[1fr_.95fr]">
+
+      <div class="space-y-5">
+
+        <div class="rounded-[34px] border border-yellow-400/15 bg-black/40 p-5 backdrop-blur-xl">
+          <div class="mb-4 flex items-center justify-between gap-4">
+            <div>
+              <h3 class="text-2xl font-black text-white">1. Escolha a base</h3>
+              <p class="mt-1 text-sm text-zinc-400">Comece pelo tipo de hot dog.</p>
+            </div>
+          </div>
+
+          <div class="grid gap-3 sm:grid-cols-3">
+            <button type="button" class="montagem-opcao ativo rounded-[24px] border border-white/10 bg-white/5 p-4 text-left transition hover:border-yellow-400/40" data-grupo="base" data-nome="Tradicional" data-preco="13">
+              <div class="flex items-center justify-between">
+                <span class="text-3xl">🌭</span>
+                <span class="check-montagem rounded-full bg-yellow-400 px-2 py-1 text-xs font-black text-black">OK</span>
+              </div>
+              <strong class="mt-4 block text-lg text-white">Tradicional</strong>
+              <small class="text-zinc-400">1 salsicha</small>
+            </button>
+
+            <button type="button" class="montagem-opcao rounded-[24px] border border-white/10 bg-white/5 p-4 text-left transition hover:border-yellow-400/40" data-grupo="base" data-nome="Duplo" data-preco="15">
+              <div class="flex items-center justify-between">
+                <span class="text-3xl">🌭🌭</span>
+                <span class="check-montagem rounded-full bg-yellow-400 px-2 py-1 text-xs font-black text-black">OK</span>
+              </div>
+              <strong class="mt-4 block text-lg text-white">Duplo</strong>
+              <small class="text-zinc-400">2 salsichas</small>
+            </button>
+
+            <button type="button" class="montagem-opcao rounded-[24px] border border-white/10 bg-white/5 p-4 text-left transition hover:border-yellow-400/40" data-grupo="base" data-nome="Triplo" data-preco="17">
+              <div class="flex items-center justify-between">
+                <span class="text-3xl">🌭🌭🌭</span>
+                <span class="check-montagem rounded-full bg-yellow-400 px-2 py-1 text-xs font-black text-black">OK</span>
+              </div>
+              <strong class="mt-4 block text-lg text-white">Triplo</strong>
+              <small class="text-zinc-400">3 salsichas</small>
+            </button>
+          </div>
+        </div>
+
+        <div class="rounded-[34px] border border-yellow-400/15 bg-black/40 p-5 backdrop-blur-xl">
+          <h3 class="text-2xl font-black text-white">2. Adicionais</h3>
+          <p class="mt-1 text-sm text-zinc-400">Clique para adicionar ou remover.</p>
+
+          <div class="mt-4 grid gap-3 sm:grid-cols-2">
+            <button type="button" class="montagem-opcao rounded-[24px] border border-white/10 bg-white/5 p-4 text-left transition hover:border-yellow-400/40" data-grupo="extra" data-nome="Batata palha" data-preco="0">
+              <div class="flex items-center justify-between">
+                <span class="text-3xl">🥔</span>
+                <span class="check-montagem rounded-full bg-yellow-400 px-2 py-1 text-xs font-black text-black">OK</span>
+              </div>
+              <strong class="mt-4 block text-lg text-white">Batata palha</strong>
+              <small class="text-zinc-400">Incluso</small>
+            </button>
+
+            <button type="button" class="montagem-opcao rounded-[24px] border border-white/10 bg-white/5 p-4 text-left transition hover:border-yellow-400/40" data-grupo="extra" data-nome="Cheddar" data-preco="2">
+              <div class="flex items-center justify-between">
+                <span class="text-3xl">🧀</span>
+                <span class="check-montagem rounded-full bg-yellow-400 px-2 py-1 text-xs font-black text-black">OK</span>
+              </div>
+              <strong class="mt-4 block text-lg text-white">Cheddar</strong>
+              <small class="text-zinc-400">+ R$ 2,00</small>
+            </button>
+
+            <button type="button" class="montagem-opcao rounded-[24px] border border-white/10 bg-white/5 p-4 text-left transition hover:border-yellow-400/40" data-grupo="extra" data-nome="Fritas 50g" data-preco="2">
+              <div class="flex items-center justify-between">
+                <span class="text-3xl">🍟</span>
+                <span class="check-montagem rounded-full bg-yellow-400 px-2 py-1 text-xs font-black text-black">OK</span>
+              </div>
+              <strong class="mt-4 block text-lg text-white">Fritas 50g</strong>
+              <small class="text-zinc-400">+ R$ 2,00</small>
+            </button>
+
+            <button type="button" class="montagem-opcao rounded-[24px] border border-white/10 bg-white/5 p-4 text-left transition hover:border-yellow-400/40" data-grupo="extra" data-nome="Coca mini" data-preco="3">
+              <div class="flex items-center justify-between">
+                <span class="text-3xl">🥤</span>
+                <span class="check-montagem rounded-full bg-yellow-400 px-2 py-1 text-xs font-black text-black">OK</span>
+              </div>
+              <strong class="mt-4 block text-lg text-white">Coca mini</strong>
+              <small class="text-zinc-400">+ R$ 3,00</small>
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+      <aside class="sticky top-28 h-fit rounded-[42px] border border-yellow-400/20 bg-black/50 p-6 shadow-[0_24px_90px_rgba(0,0,0,.55)] backdrop-blur-2xl md:p-8">
+
+        <div class="mb-6 flex items-start justify-between gap-4">
+          <div>
+            <p class="text-xs font-black uppercase tracking-[.3em] text-yellow-400">Preview ao vivo</p>
+            <h3 class="mt-2 text-3xl font-black text-white">Seu Ô DOG</h3>
+          </div>
+
+          <button type="button" id="botaoResetarMontagem" class="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm font-black text-white transition hover:bg-white/10">
+            Resetar
+          </button>
+        </div>
+
+        <div class="mb-6 h-2 overflow-hidden rounded-full bg-white/10">
+          <div id="barraProgressoMontagem" class="barra-progresso-montagem h-full rounded-full bg-yellow-400"></div>
+        </div>
+
+        <div class="relative mx-auto mb-8 flex min-h-[310px] max-w-md flex-col items-center justify-center rounded-[34px] bg-white/[0.03] p-6">
+          <div class="absolute inset-0 rounded-[34px] bg-gradient-to-br from-yellow-400/10 to-red-600/10"></div>
+
+          <div id="camadaPaoCima" class="camada-preview visivel relative z-10 h-12 w-[88%] rounded-full bg-gradient-to-r from-[#f4a43a] via-[#ffd06a] to-[#c56a19] shadow-[0_10px_35px_rgba(0,0,0,.35)]"></div>
+          <div id="camadaSalsicha" class="camada-preview visivel relative z-10 -mt-2 h-10 w-[80%] rounded-full bg-gradient-to-r from-red-800 via-red-500 to-red-900 shadow-[0_10px_35px_rgba(0,0,0,.35)]"></div>
+          <div id="camadaCheddar" class="camada-preview relative z-10 -mt-1 h-8 w-[76%] rounded-full bg-gradient-to-r from-yellow-400 via-orange-300 to-yellow-500 shadow-[0_10px_35px_rgba(0,0,0,.3)]"></div>
+          <div id="camadaBatata" class="camada-preview relative z-10 -mt-1 h-7 w-[70%] rounded-full bg-gradient-to-r from-[#f2d16b] via-[#fff0a8] to-[#d8a42b] shadow-[0_10px_35px_rgba(0,0,0,.25)]"></div>
+          <div id="camadaPaoBaixo" class="camada-preview visivel relative z-10 -mt-2 h-12 w-[88%] rounded-full bg-gradient-to-r from-[#b95f18] via-[#f3a239] to-[#ffcf70] shadow-[0_18px_45px_rgba(0,0,0,.45)]"></div>
+
+          <div id="camadaFritas" class="camada-preview absolute bottom-5 left-5 z-20 text-5xl">🍟</div>
+          <div id="camadaBebida" class="camada-preview absolute bottom-5 right-5 z-20 text-5xl">🥤</div>
+        </div>
+
+        <div class="rounded-[28px] border border-white/10 bg-white/5 p-5">
+          <div class="mb-4 flex items-center justify-between">
+            <span class="font-bold text-zinc-300">Base</span>
+            <strong id="resumoBase" class="text-white">Tradicional</strong>
+          </div>
+
+          <div class="mb-4">
+            <span class="mb-2 block font-bold text-zinc-300">Adicionais</span>
+            <p id="resumoExtras" class="text-sm text-zinc-400">Nenhum adicional selecionado</p>
+          </div>
+
+          <div class="flex items-center justify-between border-t border-white/10 pt-4">
+            <span class="font-black text-white">Total</span>
+            <strong id="resumoTotal" class="text-4xl font-black text-yellow-400">R$ 13,00</strong>
+          </div>
+        </div>
+
+        <a id="botaoFinalizarMontagem" href="#" class="mt-5 flex w-full items-center justify-center rounded-2xl bg-yellow-400 px-6 py-5 text-center font-black text-black transition hover:scale-[1.02]">
+          Finalizar montagem no WhatsApp
+        </a>
+
+      </aside>
+
+    </div>
+  </div>
+</section>
+
+<section  id="sobre" class="revelar-odog px-5 pb-32">
+
+      <div class="mx-auto grid max-w-7xl gap-6 md:grid-cols-3">
+
+        <div class="vidro rounded-[34px] p-8">
+          <span class="text-4xl">🌭</span>
+          <h4 class="mt-5 text-2xl font-black">Hot dog simples e bem feito</h4>
+        </p>
+        </div>
+
+        <div class="vidro rounded-[34px] p-8">
+          <span class="text-4xl">🍟</span>
+          <h4 class="mt-5 text-2xl font-black">Combos com fritas</h4>
+        </div>
+
+        <div class="vidro rounded-[34px] p-8">
+          <span class="text-4xl">🥤</span>
+          <h4 class="mt-5 text-2xl font-black">Coca mini inclusa</h4>
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  
+
+<!-- BARRA MOBILE ESTILO APP -->
+<nav class="fixed bottom-4 left-1/2 z-[80] w-[calc(100%-24px)] max-w-md -translate-x-1/2 md:hidden">
+  <div class="mobile-blur-app rounded-[30px] border border-white/10 bg-black/75 px-3 py-3 shadow-[0_18px_60px_rgba(0,0,0,.6)]">
+
+    <div class="grid grid-cols-5 gap-2">
+
+      <a href="#inicio" class="animar-toque toque-app flex flex-col items-center justify-center rounded-2xl bg-white/5 px-2 py-2 text-center text-[10px] font-black text-white">
+        <span class="mb-1 text-base">🏠</span>
+        Início
+      </a>
+
+      <a href="#cardapio" class="animar-toque toque-app flex flex-col items-center justify-center rounded-2xl bg-yellow-400 px-2 py-2 text-center text-[10px] font-black text-black shadow-[0_0_28px_rgba(255,204,0,.35)]">
+        <span class="mb-1 text-base">🌭</span>
+        Cardápio
+      </a>
+
+      <a href="#combos" class="animar-toque toque-app flex flex-col items-center justify-center rounded-2xl bg-white/5 px-2 py-2 text-center text-[10px] font-black text-white">
+        <span class="mb-1 text-base">🔥</span>
+        Combos
+      </a>
+
+      <a href="#montagem" class="animar-toque toque-app flex flex-col items-center justify-center rounded-2xl bg-white/5 px-2 py-2 text-center text-[10px] font-black text-white">
+        <span class="mb-1 text-base">✨</span>
+        Montar
+      </a>
+
+      <a href="#sobre" class="animar-toque toque-app flex flex-col items-center justify-center rounded-2xl bg-white/5 px-2 py-2 text-center text-[10px] font-black text-white">
+        <span class="mb-1 text-base">⭐</span>
+        Sobre
+      </a>
+
+    </div>
+
+  </div>
+</nav>
+
+<!-- BOTÃO FLUTUANTE WHATSAPP MOBILE -->
+<a href="#" aria-label="Pedir pelo WhatsApp"
+  class="botao-whatsapp-flutuante fixed bottom-[112px] right-4 z-[90] flex h-16 w-16 items-center justify-center rounded-full bg-green-500 text-3xl shadow-[0_18px_45px_rgba(0,0,0,.5)] transition active:scale-95 md:hidden">
+  ☎
+</a>
+
+<!-- Scripts do projeto -->
+  <script src="script.js"></script>
+</body>
+</html>

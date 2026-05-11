@@ -1,0 +1,566 @@
+/* =========================================================
+   Ô DOG — Hot Dog & Batatas
+   Arquivo de estilos personalizados do projeto
+
+   Observação:
+   - As classes utilitárias do Tailwind continuam no HTML.
+   - Todo CSS próprio, animações, keyframes e ajustes especiais
+     ficam centralizados aqui para manter o HTML mais limpo.
+   ========================================================= */
+
+/* ===== CSS EXISTENTE ===== */
+/* Projeto usando Tailwind via CDN. Estilos principais estão no index.html. */
+
+/* ===== CSS EXTRAÍDO DO HTML ===== */
+html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background:
+        radial-gradient(circle at top left, rgba(255, 204, 0, .12), transparent 28%),
+        radial-gradient(circle at top right, rgba(216, 36, 24, .16), transparent 30%),
+        linear-gradient(180deg, #090705 0%, #160c08 45%, #090705 100%);
+    }
+
+    .vidro {
+      background: rgba(255, 255, 255, .055);
+      border: 1px solid rgba(255, 255, 255, .1);
+      backdrop-filter: blur(18px);
+    }
+
+    .cartao-produto {
+      background:
+        linear-gradient(145deg, rgba(255, 255, 255, .08), rgba(255, 255, 255, .025)),
+        linear-gradient(180deg, rgba(255, 204, 0, .06), transparent);
+      border: 1px solid rgba(255, 255, 255, .09);
+    }
+
+    .imagem-fake {
+      background:
+        radial-gradient(circle at 35% 25%, rgba(255, 204, 0, .55), transparent 24%),
+        radial-gradient(circle at 70% 45%, rgba(216, 36, 24, .75), transparent 28%),
+        linear-gradient(135deg, #7b170c, #f6a51a);
+    }
+  
+/* ===== MOBILE APP Ô DOG - EXPERIÊNCIA DE APP ===== */
+@media (max-width: 768px) {
+  body {
+    padding-bottom: 112px;
+  }
+
+  section {
+    scroll-margin-top: 96px;
+  }
+
+  a,
+  button {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .toque-app {
+    min-height: 50px;
+  }
+
+  .animar-toque {
+    transition:
+      transform .22s ease,
+      background-color .22s ease,
+      box-shadow .22s ease,
+      border-color .22s ease,
+      opacity .22s ease;
+  }
+
+  .animar-toque:active {
+    transform: scale(.96);
+  }
+
+  .mobile-blur-app {
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+  }
+
+  /* Cards maiores e mais confortáveis no celular */
+  #cardapio article {
+    border-radius: 34px !important;
+    padding: 18px !important;
+  }
+
+  #cardapio article > div.relative,
+  #cardapio article > div {
+    gap: 20px !important;
+  }
+
+  #cardapio article h3,
+  #cardapio article h4 {
+    font-size: 1.75rem !important;
+    line-height: 1.05 !important;
+  }
+
+  #cardapio article p {
+    font-size: .98rem !important;
+    line-height: 1.65 !important;
+  }
+
+  #cardapio article strong {
+    font-size: 2.35rem !important;
+  }
+
+  #cardapio article button {
+    min-height: 54px !important;
+    padding: 14px 18px !important;
+    border-radius: 20px !important;
+  }
+
+  #cardapio .h-40 {
+    height: 12rem !important;
+  }
+
+  #cardapio .w-full {
+    width: 100% !important;
+  }
+
+  /* Categoria com scroll mais gostoso no mobile */
+  #cardapio .overflow-x-auto {
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  #cardapio .overflow-x-auto > * {
+    scroll-snap-align: start;
+  }
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.botao-whatsapp-flutuante {
+  animation: pulsarWhatsapp 2.4s ease-in-out infinite;
+}
+
+@keyframes pulsarWhatsapp {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+    box-shadow: 0 0 0 rgba(34, 197, 94, 0);
+  }
+
+  50% {
+    transform: translateY(-4px) scale(1.03);
+    box-shadow: 0 0 38px rgba(34, 197, 94, .38);
+  }
+}
+
+
+/* ===== IDENTIDADE VISUAL FORTE Ô DOG ===== */
+:root {
+  --odog-amarelo-vivo: #ffcc00;
+  --odog-vermelho-vivo: #d82418;
+  --odog-preto-profundo: #070504;
+}
+
+body {
+  background:
+    radial-gradient(circle at 18% 8%, rgba(255, 204, 0, .16), transparent 28%),
+    radial-gradient(circle at 80% 12%, rgba(216, 36, 24, .22), transparent 32%),
+    linear-gradient(180deg, #070504 0%, #150907 46%, #070504 100%) !important;
+}
+
+.marca-odog {
+  letter-spacing: -.05em;
+  text-transform: uppercase;
+}
+
+.selo-odog {
+  position: relative;
+  overflow: hidden;
+}
+
+.selo-odog::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    repeating-linear-gradient(
+      -45deg,
+      rgba(255,204,0,.18) 0px,
+      rgba(255,204,0,.18) 8px,
+      transparent 8px,
+      transparent 18px
+    );
+  opacity: .28;
+  pointer-events: none;
+}
+
+.faixa-odog {
+  background: linear-gradient(90deg, #ffcc00, #ff7a00, #d82418);
+  color: #070504;
+}
+
+.grade-odog {
+  background-image:
+    linear-gradient(rgba(255,255,255,.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.045) 1px, transparent 1px);
+  background-size: 38px 38px;
+}
+
+.texto-impacto-odog {
+  text-shadow:
+    0 0 35px rgba(255,204,0,.18),
+    0 12px 45px rgba(0,0,0,.55);
+}
+
+.borda-marca-odog {
+  border: 1px solid rgba(255, 204, 0, .22);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.08),
+    0 24px 80px rgba(0,0,0,.35);
+}
+
+@media (max-width: 768px) {
+  .marca-odog-mobile {
+    letter-spacing: -.045em;
+  }
+}
+
+
+/* ===== SESSÃO MONTAGEM DO LANCHE Ô DOG ===== */
+.secao-montagem-odog {
+  position: relative;
+  overflow: hidden;
+}
+
+.ingrediente-odog {
+  opacity: 0;
+  transform: translateY(28px) scale(.92);
+  animation: ingredienteOdog .75s ease forwards;
+}
+
+.ingrediente-odog:nth-child(1) { animation-delay: .15s; }
+.ingrediente-odog:nth-child(2) { animation-delay: .35s; }
+.ingrediente-odog:nth-child(3) { animation-delay: .55s; }
+.ingrediente-odog:nth-child(4) { animation-delay: .75s; }
+.ingrediente-odog:nth-child(5) { animation-delay: .95s; }
+
+@keyframes ingredienteOdog {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.lanche-camada {
+  opacity: 0;
+  transform: translateY(-18px) scale(.96);
+  animation: camadaLanche .7s ease forwards;
+}
+
+.lanche-camada:nth-child(1) { animation-delay: .2s; }
+.lanche-camada:nth-child(2) { animation-delay: .45s; }
+.lanche-camada:nth-child(3) { animation-delay: .7s; }
+.lanche-camada:nth-child(4) { animation-delay: .95s; }
+.lanche-camada:nth-child(5) { animation-delay: 1.2s; }
+
+@keyframes camadaLanche {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.lanche-flutuante {
+  animation: lancheFlutuante 4s ease-in-out infinite;
+}
+
+@keyframes lancheFlutuante {
+  0%, 100% {
+    transform: translateY(0) rotate(-1deg);
+  }
+
+  50% {
+    transform: translateY(-12px) rotate(1deg);
+  }
+}
+
+
+/* ===== MONTAGEM INTERATIVA Ô DOG ===== */
+.montagem-opcao {
+  user-select: none;
+}
+
+.montagem-opcao.ativo {
+  border-color: rgba(255, 204, 0, .75) !important;
+  background: linear-gradient(145deg, rgba(255, 204, 0, .18), rgba(216, 36, 24, .14)) !important;
+  box-shadow: 0 18px 55px rgba(255, 204, 0, .14);
+}
+
+.montagem-opcao.ativo .check-montagem {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.check-montagem {
+  opacity: 0;
+  transform: scale(.75);
+  transition: .2s ease;
+}
+
+.camada-preview {
+  opacity: 0;
+  transform: translateY(-18px) scale(.96);
+  transition: .35s ease;
+}
+
+.camada-preview.visivel {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.barra-progresso-montagem {
+  width: 0%;
+  transition: width .35s ease;
+}
+
+@media (max-width: 768px) {
+  .montagem-opcao {
+    min-height: 92px;
+  }
+
+  #montagem {
+    scroll-margin-top: 100px;
+  }
+}
+
+
+/* ===== MICRO DETALHES PREMIUM Ô DOG ===== */
+:root {
+  --ease-odog: cubic-bezier(.16, 1, .3, 1);
+}
+
+/* Scroll elegante */
+html {
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 204, 0, .75) rgba(255, 255, 255, .06);
+}
+
+body::-webkit-scrollbar {
+  width: 10px;
+}
+
+body::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, .05);
+}
+
+body::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #ffcc00, #d82418);
+  border-radius: 999px;
+  border: 2px solid #070504;
+}
+
+/* Seleção de texto com identidade */
+::selection {
+  background: rgba(255, 204, 0, .9);
+  color: #070504;
+}
+
+/* Hovers e transições globais */
+a,
+button,
+article,
+.montagem-opcao {
+  transition:
+    transform .28s var(--ease-odog),
+    box-shadow .28s var(--ease-odog),
+    background-color .28s var(--ease-odog),
+    border-color .28s var(--ease-odog),
+    color .28s var(--ease-odog),
+    opacity .28s var(--ease-odog);
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid rgba(255, 204, 0, .85);
+  outline-offset: 4px;
+}
+
+/* Profundidade premium em cards */
+article,
+.borda-marca-odog,
+.vidro,
+.glass,
+.cartao-produto {
+  box-shadow:
+    0 18px 55px rgba(0, 0, 0, .32),
+    inset 0 1px 0 rgba(255, 255, 255, .06);
+}
+
+article:hover,
+.cartao-produto:hover,
+.montagem-opcao:hover {
+  transform: translateY(-6px);
+  box-shadow:
+    0 28px 90px rgba(0, 0, 0, .48),
+    0 0 38px rgba(255, 204, 0, .08),
+    inset 0 1px 0 rgba(255, 255, 255, .08);
+}
+
+/* Brilho sutil em botões principais */
+.btn-brilho-odog,
+a[href="#cardapio"],
+a[href="#montagem"],
+#botaoFinalizarMontagem {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-brilho-odog::after,
+a[href="#cardapio"]::after,
+a[href="#montagem"]::after,
+#botaoFinalizarMontagem::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 55%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.36), transparent);
+  transform: skewX(-18deg);
+  transition: left .75s var(--ease-odog);
+  pointer-events: none;
+}
+
+.btn-brilho-odog:hover::after,
+a[href="#cardapio"]:hover::after,
+a[href="#montagem"]:hover::after,
+#botaoFinalizarMontagem:hover::after {
+  left: 130%;
+}
+
+/* Animação leve de entrada */
+.revelar-odog {
+  opacity: 0;
+  transform: translateY(26px);
+  transition:
+    opacity .75s var(--ease-odog),
+    transform .75s var(--ease-odog);
+}
+
+.revelar-odog.visivel {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Profundidade de imagem/logo */
+img {
+  transition:
+    transform .35s var(--ease-odog),
+    filter .35s var(--ease-odog),
+    opacity .35s var(--ease-odog);
+}
+
+img:hover {
+  filter: saturate(1.08) contrast(1.04);
+}
+
+/* Glass mais refinado */
+.mobile-blur-app,
+.vidro,
+.glass {
+  backdrop-filter: blur(22px) saturate(1.1);
+  -webkit-backdrop-filter: blur(22px) saturate(1.1);
+}
+
+/* Reduz animações para quem prefere menos movimento */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: .01ms !important;
+  }
+}
+
+@media (max-width: 768px) {
+  article:hover,
+  .cartao-produto:hover,
+  .montagem-opcao:hover {
+    transform: none;
+  }
+
+  article:active,
+  .cartao-produto:active,
+  .montagem-opcao:active {
+    transform: scale(.985);
+  }
+}
+
+
+/* ===== FAIXA Ô DOG EM LOOP CONTÍNUO ===== */
+.faixa-loop-odog {
+  width: 100%;
+  overflow: hidden;
+  background: linear-gradient(90deg, #ffcc00 0%, #ff9f00 42%, #d82418 100%);
+  border-top: 1px solid rgba(255, 204, 0, .35);
+  border-bottom: 1px solid rgba(216, 36, 24, .45);
+}
+
+.faixa-loop-odog__trilho {
+  display: flex;
+  width: max-content;
+  animation: faixaOdogLoop 24s linear infinite;
+  will-change: transform;
+}
+
+.faixa-loop-odog__grupo {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  gap: 34px;
+  padding: 16px 17px;
+  white-space: nowrap;
+  color: #080504;
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: .28em;
+  text-transform: uppercase;
+}
+
+.faixa-loop-odog__ponto {
+  opacity: .8;
+  font-weight: 900;
+}
+
+@keyframes faixaOdogLoop {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.faixa-loop-odog:hover .faixa-loop-odog__trilho {
+  animation-play-state: paused;
+}
+
+@media (max-width: 768px) {
+  .faixa-loop-odog__grupo {
+    gap: 24px;
+    padding: 13px 12px;
+    font-size: 11px;
+    letter-spacing: .22em;
+  }
+
+  .faixa-loop-odog__trilho {
+    animation-duration: 18s;
+  }
+}
