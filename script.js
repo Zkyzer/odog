@@ -342,3 +342,43 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
+
+/* =========================================================
+   OTIMIZAÇÃO DE PERFORMANCE MOBILE — Ô DOG
+   ========================================================= */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+  const dispositivoMobile = window.innerWidth <= 768;
+
+  if (!dispositivoMobile) {
+    return;
+  }
+
+  /* Remove efeitos muito pesados no mobile */
+  const elementosAnimados = document.querySelectorAll(
+    ".lanche-flutuante, .botao-whatsapp-flutuante, .imagem-logo-principal"
+  );
+
+  elementosAnimados.forEach((elemento) => {
+    elemento.style.animation = "none";
+  });
+
+  /* Desativa mousemove/parallax no mobile */
+  const eventosPesados = ["mousemove"];
+
+  eventosPesados.forEach((evento) => {
+    window["on" + evento] = null;
+    document["on" + evento] = null;
+  });
+
+  /* Lazy render visual */
+  const imagens = document.querySelectorAll("img");
+
+  imagens.forEach((imagem) => {
+    imagem.loading = "lazy";
+    imagem.decoding = "async";
+  });
+
+});
+

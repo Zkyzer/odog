@@ -679,3 +679,114 @@ img:hover {
   transform: scale(.97);
 }
 
+
+/* =========================================================
+   OTIMIZAÇÃO DE PERFORMANCE MOBILE — Ô DOG
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+  /* Remove peso excessivo de blur no mobile */
+  .glass,
+  .vidro,
+  .mobile-blur-app,
+  [class*="backdrop-blur"] {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+
+  /* Reduz intensidade dos blurs gigantes */
+  [class*="blur-"] {
+    filter: blur(45px) !important;
+  }
+
+  /* Sombras mais leves */
+  article,
+  .cartao-produto,
+  .borda-marca-odog,
+  .montagem-opcao,
+  .glass,
+  .vidro {
+    box-shadow:
+      0 10px 28px rgba(0,0,0,.28) !important;
+  }
+
+  /* Remove animações pesadas */
+  .lanche-flutuante,
+  .botao-whatsapp-flutuante,
+  .imagem-logo-principal,
+  [class*="animar-"],
+  [class*="pulse"],
+  [class*="bounce"] {
+    animation: none !important;
+  }
+
+  /* Reduz efeitos hover no mobile */
+  article:hover,
+  .cartao-produto:hover,
+  .montagem-opcao:hover,
+  button:hover,
+  a:hover {
+    transform: none !important;
+    box-shadow:
+      0 10px 28px rgba(0,0,0,.28) !important;
+  }
+
+  /* Mantém toque responsivo */
+  button:active,
+  a:active {
+    transform: scale(.985);
+  }
+
+  /* Faixa infinita mais leve */
+  .faixa-loop-odog__trilho {
+    animation-duration: 40s !important;
+    will-change: auto !important;
+  }
+
+  /* Otimiza renderização */
+  * {
+    text-rendering: optimizeSpeed;
+  }
+
+  img {
+    image-rendering: auto;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+  }
+
+  /* Reduz glow exagerado */
+  [class*="shadow-["],
+  [class*="drop-shadow"] {
+    filter: none !important;
+  }
+
+  /* Menos custo visual */
+  section {
+    overflow-x: hidden;
+  }
+
+  /* Navbar mobile mais leve */
+  .mobile-blur-app {
+    background: rgba(8, 5, 4, .92) !important;
+  }
+}
+
+/* Otimização geral */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Evita repaint excessivo */
+.faixa-loop-odog__trilho,
+.lanche-flutuante,
+.botao-whatsapp-flutuante {
+  transform: translateZ(0);
+}
+
+/* Scroll suave mais leve */
+html {
+  scroll-behavior: smooth;
+}
+
