@@ -12,30 +12,27 @@
 document.addEventListener("DOMContentLoaded", () => {
   const opcoes = document.querySelectorAll(".montagem-opcao");
   const botaoResetar = document.getElementById("botaoResetarMontagem");
-  const resumoBase = document.getElementById("resumoBase");
-  const resumoExtras = document.getElementById("resumoExtras");
+  const resumoProduto = document.getElementById("resumoProduto");
+  const resumoDescricaoProduto = document.getElementById("resumoDescricaoProduto");
+  const resumoBebida = document.getElementById("resumoBebida");
+  const resumoRetirados = document.getElementById("resumoRetirados");
   const resumoTotal = document.getElementById("resumoTotal");
   const botaoFinalizar = document.getElementById("botaoFinalizarMontagem");
   const barraProgresso = document.getElementById("barraProgressoMontagem");
 
-  const camadas = {
-    cheddar: document.getElementById("camadaCheddar"),
-    batata: document.getElementById("camadaBatata"),
-    fritas: document.getElementById("camadaFritas"),
-    bebida: document.getElementById("camadaBebida"),
-    salsicha: document.getElementById("camadaSalsicha"),
-  };
-
-  if (!opcoes.length || !resumoBase || !resumoTotal) {
+  if (!opcoes.length || !resumoProduto || !resumoTotal) {
     return;
   }
 
   const estadoMontagem = {
-    base: {
-      nome: "Tradicional",
-      preco: 13,
+    produto: {
+      tipo: "Combo",
+      nome: "Combo Caramelo",
+      descricao: "Hot Dog Tradicional com 1 salsicha, 50g de fritas e 1 Coca-Cola 200ml",
+      preco: 18,
     },
-    extras: [],
+    bebida: "Coca-Cola 200ml",
+    retirados: [],
   };
 
   function formatarPreco(valor) {
@@ -45,112 +42,85 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  function calcularTotal() {
-    const totalExtras = estadoMontagem.extras.reduce((total, extra) => {
-      return total + extra.preco;
-    }, 0);
-
-    return estadoMontagem.base.preco + totalExtras;
-  }
-
-  function atualizarSalsichaVisual() {
-    if (!camadas.salsicha) return;
-
-    const larguraPorBase = {
-      Tradicional: "80%",
-      Duplo: "86%",
-      Triplo: "92%",
-    };
-
-    const alturaPorBase = {
-      Tradicional: "2.5rem",
-      Duplo: "3rem",
-      Triplo: "3.5rem",
-    };
-
-    camadas.salsicha.style.width = larguraPorBase[estadoMontagem.base.nome] || "80%";
-    camadas.salsicha.style.height = alturaPorBase[estadoMontagem.base.nome] || "2.5rem";
-  }
-
-  function atualizarCamada(nomeExtra, elemento, nomesValidos) {
-    if (!elemento) return;
-
-    const estaSelecionado = estadoMontagem.extras.some((extra) => {
-      return nomesValidos.includes(extra.nome);
-    });
-
-    elemento.classList.toggle("visivel", estaSelecionado);
-  }
-
-  function atualizarPreview() {
-    atualizarSalsichaVisual();
-
-    atualizarCamada("Cheddar", camadas.cheddar, ["Cheddar"]);
-    atualizarCamada("Batata", camadas.batata, ["Batata palha"]);
-    atualizarCamada("Fritas", camadas.fritas, ["Fritas 50g"]);
-    atualizarCamada("Bebida", camadas.bebida, ["Coca mini"]);
-  }
-
   function atualizarResumo() {
-    const total = calcularTotal();
-    const quantidadeSelecionada = 1 + estadoMontagem.extras.length;
-    const progresso = Math.min((quantidadeSelecionada / 5) * 100, 100);
+    const retiradosTexto = estadoMontagem.retirados.length
+      ? estadoMontagem.retirados.join(", ")
+      : "completo";
 
-    resumoBase.textContent = estadoMontagem.base.nome;
+    const etapasCompletas = 2 + (estadoMontagem.retirados.length ? 1 : 0);
+    const progresso = Math.min((etapasCompletas / 3) * 100, 100);
 
-    resumoExtras.textContent = estadoMontagem.extras.length
-      ? estadoMontagem.extras.map((extra) => extra.nome).join(", ")
-      : "Nenhum adicional selecionado";
+    resumoProduto.textContent = estadoMontagem.produto.nome;
 
-    resumoTotal.textContent = formatarPreco(total);
+    if (resumoDescricaoProduto) {
+      resumoDescricaoProduto.textContent = estadoMontagem.produto.descricao;
+    }
+
+    if (resumoBebida) {
+      resumoBebida.textContent = estadoMontagem.bebida;
+    }
+
+    if (resumoRetirados) {
+      resumoRetirados.textContent = retiradosTexto;
+    }
+
+    resumoTotal.textContent = formatarPreco(estadoMontagem.produto.preco);
 
     if (barraProgresso) {
       barraProgresso.style.width = `${progresso}%`;
     }
 
     if (botaoFinalizar) {
-      const extrasTexto = estadoMontagem.extras.length
-        ? estadoMontagem.extras.map((extra) => extra.nome).join(", ")
-        : "sem adicionais";
-
       const mensagem = [
-        "Olá! Quero montar um Ô DOG:",
+        "Olá! Quero fazer um pedido na Ô DOG:",
         "",
-        `Base: ${estadoMontagem.base.nome}`,
-        `Adicionais: ${extrasTexto}`,
-        `Total aproximado: ${formatarPreco(total)}`,
+        `Item: ${estadoMontagem.produto.nome}`,
+        `Descrição: ${estadoMontagem.produto.descricao}`,
+        `Bebida: ${estadoMontagem.bebida}`,
+        `Ingredientes retirados: ${retiradosTexto}`,
+        `Valor do item: ${formatarPreco(estadoMontagem.produto.preco)}`,
       ].join("\n");
 
       botaoFinalizar.href = `https://wa.me/5548988672880?text=${encodeURIComponent(mensagem)}`;
     }
-
-    atualizarPreview();
   }
 
-  function selecionarBase(botao) {
-    const botoesBase = document.querySelectorAll('.montagem-opcao[data-grupo="base"]');
+  function selecionarProduto(botao) {
+    const botoesProduto = document.querySelectorAll('.montagem-opcao[data-grupo="produto"]');
 
-    botoesBase.forEach((item) => item.classList.remove("ativo"));
+    botoesProduto.forEach((item) => item.classList.remove("ativo"));
     botao.classList.add("ativo");
 
-    estadoMontagem.base = {
+    estadoMontagem.produto = {
+      tipo: botao.dataset.tipo || "Lanche",
       nome: botao.dataset.nome,
+      descricao: botao.dataset.descricao || botao.dataset.nome,
       preco: Number(botao.dataset.preco),
     };
 
     atualizarResumo();
   }
 
-  function alternarExtra(botao) {
+  function selecionarBebida(botao) {
+    const botoesBebida = document.querySelectorAll('.montagem-opcao[data-grupo="bebida"]');
+
+    botoesBebida.forEach((item) => item.classList.remove("ativo"));
+    botao.classList.add("ativo");
+
+    estadoMontagem.bebida = botao.dataset.nome || "Sem bebida";
+
+    atualizarResumo();
+  }
+
+  function alternarIngredienteRetirado(botao) {
     const nome = botao.dataset.nome;
-    const preco = Number(botao.dataset.preco);
-    const existe = estadoMontagem.extras.some((extra) => extra.nome === nome);
+    const existe = estadoMontagem.retirados.includes(nome);
 
     if (existe) {
-      estadoMontagem.extras = estadoMontagem.extras.filter((extra) => extra.nome !== nome);
+      estadoMontagem.retirados = estadoMontagem.retirados.filter((ingrediente) => ingrediente !== nome);
       botao.classList.remove("ativo");
     } else {
-      estadoMontagem.extras.push({ nome, preco });
+      estadoMontagem.retirados.push(nome);
       botao.classList.add("ativo");
     }
 
@@ -158,17 +128,23 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function resetarMontagem() {
-    estadoMontagem.base = {
-      nome: "Tradicional",
-      preco: 13,
+    estadoMontagem.produto = {
+      tipo: "Combo",
+      nome: "Combo Caramelo",
+      descricao: "Hot Dog Tradicional com 1 salsicha, 50g de fritas e 1 Coca-Cola 200ml",
+      preco: 18,
     };
-
-    estadoMontagem.extras = [];
+    estadoMontagem.bebida = "Coca-Cola 200ml";
+    estadoMontagem.retirados = [];
 
     opcoes.forEach((botao) => {
       botao.classList.remove("ativo");
 
-      if (botao.dataset.grupo === "base" && botao.dataset.nome === "Tradicional") {
+      if (botao.dataset.grupo === "produto" && botao.dataset.nome === "Combo Caramelo") {
+        botao.classList.add("ativo");
+      }
+
+      if (botao.dataset.grupo === "bebida" && botao.dataset.nome === "Coca-Cola 200ml") {
         botao.classList.add("ativo");
       }
     });
@@ -178,12 +154,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
   opcoes.forEach((botao) => {
     botao.addEventListener("click", () => {
-      if (botao.dataset.grupo === "base") {
-        selecionarBase(botao);
+      if (botao.dataset.grupo === "produto") {
+        selecionarProduto(botao);
         return;
       }
 
-      alternarExtra(botao);
+      if (botao.dataset.grupo === "bebida") {
+        selecionarBebida(botao);
+        return;
+      }
+
+      alternarIngredienteRetirado(botao);
     });
   });
 
@@ -267,8 +248,9 @@ if (podeUsarParallax) {
 
 /* ===== FILTRO FUNCIONAL DO CARDÁPIO - SEM BEBIDAS ===== */
 document.addEventListener("DOMContentLoaded", () => {
-  const botoesCategoriaCardapio = document.querySelectorAll("[data-categoria-cardapio]");
-  const itensCardapio = document.querySelectorAll("[data-item-cardapio]");
+  const cardapio = document.getElementById("cardapio");
+  const botoesCategoriaCardapio = cardapio ? cardapio.querySelectorAll("[data-categoria-cardapio]") : [];
+  const itensCardapio = cardapio ? cardapio.querySelectorAll("[data-item-cardapio]") : [];
 
   if (!botoesCategoriaCardapio.length || !itensCardapio.length) {
     return;
