@@ -113,9 +113,15 @@ document.addEventListener("DOMContentLoaded", () => {
         ? estadoMontagem.extras.map((extra) => extra.nome).join(", ")
         : "sem adicionais";
 
-      const mensagem = `Olá! Quero montar um Ô DOG:%0A%0ABase: ${estadoMontagem.base.nome}%0AAdicionais: ${extrasTexto}%0ATotal aproximado: ${formatarPreco(total)}`;
+      const mensagem = [
+        "Olá! Quero montar um Ô DOG:",
+        "",
+        `Base: ${estadoMontagem.base.nome}`,
+        `Adicionais: ${extrasTexto}`,
+        `Total aproximado: ${formatarPreco(total)}`,
+      ].join("\n");
 
-      botaoFinalizar.href = `https://wa.me/?text=${mensagem}`;
+      botaoFinalizar.href = `https://wa.me/5548988672880?text=${encodeURIComponent(mensagem)}`;
     }
 
     atualizarPreview();
@@ -231,14 +237,32 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 /* ===== JS EXTRAÍDO DO HTML ===== */
-const logo = document.getElementById('logoParallax');
+const logo = document.getElementById("logoParallax");
+const podeUsarParallax = logo
+  && window.matchMedia("(pointer: fine)").matches
+  && window.matchMedia("(min-width: 769px)").matches
+  && !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-document.addEventListener('mousemove', (e) => {
-  const x = (window.innerWidth / 2 - e.clientX) / 45;
-  const y = (window.innerHeight / 2 - e.clientY) / 45;
+if (podeUsarParallax) {
+  let quadroParallax = null;
+  let ultimoMouse = { x: 0, y: 0 };
 
-  logo.style.transform = `translate(${x}px, ${y}px)`;
-});
+  document.addEventListener("mousemove", (evento) => {
+    ultimoMouse = {
+      x: (window.innerWidth / 2 - evento.clientX) / 45,
+      y: (window.innerHeight / 2 - evento.clientY) / 45,
+    };
+
+    if (quadroParallax) {
+      return;
+    }
+
+    quadroParallax = window.requestAnimationFrame(() => {
+      logo.style.transform = `translate3d(${ultimoMouse.x}px, ${ultimoMouse.y}px, 0)`;
+      quadroParallax = null;
+    });
+  }, { passive: true });
+}
 
 
 /* ===== FILTRO FUNCIONAL DO CARDÁPIO - SEM BEBIDAS ===== */
@@ -282,7 +306,7 @@ document.addEventListener("DOMContentLoaded", () => {
     Formato recomendado: 55 + DDD + número, somente números.
     Exemplo: const numeroWhatsappOdog = "5548999999999";
   */
-  const numeroWhatsappOdog = "";
+  const numeroWhatsappOdog = "5548988672880";
 
   function criarLinkWhatsapp(mensagem) {
     const textoMensagem = encodeURIComponent(mensagem);
@@ -364,21 +388,15 @@ document.addEventListener("DOMContentLoaded", () => {
     elemento.style.animation = "none";
   });
 
-  /* Desativa mousemove/parallax no mobile */
-  const eventosPesados = ["mousemove"];
-
-  eventosPesados.forEach((evento) => {
-    window["on" + evento] = null;
-    document["on" + evento] = null;
-  });
-
   /* Lazy render visual */
   const imagens = document.querySelectorAll("img");
 
   imagens.forEach((imagem) => {
-    imagem.loading = "lazy";
+    if (!imagem.loading) {
+      imagem.loading = "lazy";
+    }
+
     imagem.decoding = "async";
   });
 
 });
-

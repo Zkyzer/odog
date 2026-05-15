@@ -16,6 +16,10 @@ html {
       scroll-behavior: smooth;
     }
 
+picture {
+  display: contents;
+}
+
     body {
       background:
         radial-gradient(circle at top left, rgba(255, 204, 0, .12), transparent 28%),
@@ -456,6 +460,11 @@ a[href="#montagem"]:hover::after,
   transform: translateY(0);
 }
 
+#inicio.revelar-odog {
+  opacity: 1;
+  transform: none;
+}
+
 /* Profundidade de imagem/logo */
 img {
   transition:
@@ -696,7 +705,7 @@ img:hover {
   }
 
   /* Reduz intensidade dos blurs gigantes */
-  [class*="blur-"] {
+  [class*="blur-["] {
     filter: blur(45px) !important;
   }
 
@@ -790,3 +799,192 @@ html {
   scroll-behavior: smooth;
 }
 
+
+/* =========================================================
+   REFINO RESPONSIVO E PERFORMANCE MOBILE — Ô DOG
+   ========================================================= */
+
+@media (max-width: 768px) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  header .vidro {
+    border-radius: 20px !important;
+    padding: 10px 12px !important;
+  }
+
+  header .botao-whatsapp {
+    border-radius: 16px !important;
+    padding: 12px 14px !important;
+    font-size: .78rem !important;
+    white-space: nowrap;
+  }
+
+  .revelar-odog {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  #inicio {
+    min-height: auto !important;
+  }
+
+  #inicio > .relative.z-10 {
+    min-height: auto !important;
+    gap: 2rem !important;
+    padding: 7.75rem 1rem 3rem !important;
+  }
+
+  #inicio h1 {
+    max-width: 100% !important;
+    font-size: clamp(3.15rem, 16.5vw, 5.4rem) !important;
+    line-height: .86 !important;
+  }
+
+  #inicio p {
+    margin-top: 1.25rem !important;
+    font-size: 1rem !important;
+  }
+
+  #inicio .mt-10 {
+    margin-top: 1.75rem !important;
+  }
+
+  #inicio .mt-10 a {
+    padding: 1rem 1.1rem !important;
+    font-size: 1rem !important;
+  }
+
+  #inicio .absolute.rounded-full {
+    max-width: 72vw !important;
+    max-height: 72vw !important;
+    opacity: .52;
+  }
+
+  #logoParallax {
+    max-width: min(70vw, 290px);
+    margin-inline: auto;
+    transform: none !important;
+  }
+
+  #logoParallax img {
+    transform: rotate(-6deg) !important;
+    filter: drop-shadow(0 18px 26px rgba(0,0,0,.35)) !important;
+  }
+
+  #cardapio {
+    padding-top: 4.5rem !important;
+    padding-bottom: 4.5rem !important;
+  }
+
+  #cardapio h2,
+  #montagem h2,
+  .marca-odog-mobile {
+    font-size: clamp(2.55rem, 12vw, 4.25rem) !important;
+    line-height: .9 !important;
+  }
+
+  #cardapio article {
+    border-radius: 24px !important;
+    padding: 14px !important;
+  }
+
+  #cardapio article .mt-6.flex.items-center.justify-between {
+    align-items: flex-start !important;
+    gap: 1rem !important;
+    flex-wrap: wrap;
+  }
+
+  #cardapio article button:not(.botao-categoria-cardapio) {
+    min-width: 152px;
+    justify-content: center;
+  }
+
+  #combos,
+  #montagem,
+  #sobre {
+    padding-inline: 1rem !important;
+  }
+
+  #combos {
+    padding-bottom: 4rem !important;
+  }
+
+  #combos .rounded-\[42px\] {
+    border-radius: 26px !important;
+  }
+
+  #combos .grid {
+    padding: 1.35rem !important;
+  }
+
+  #combos h3 {
+    font-size: clamp(2rem, 10vw, 3rem) !important;
+  }
+
+  #montagem {
+    padding-top: 4.5rem !important;
+    padding-bottom: 4.5rem !important;
+  }
+
+  #montagem aside {
+    position: static !important;
+    border-radius: 26px !important;
+    padding: 1rem !important;
+  }
+
+  #montagem .rounded-\[34px\],
+  #montagem .rounded-\[42px\] {
+    border-radius: 24px !important;
+  }
+
+  #montagem .min-h-\[310px\] {
+    min-height: 230px !important;
+  }
+
+  #montagem .text-5xl {
+    font-size: 2.25rem !important;
+  }
+
+  #resumoTotal {
+    font-size: 2rem !important;
+  }
+
+  .faixa-loop-odog__trilho {
+    animation: none !important;
+    transform: none !important;
+  }
+}
+
+@media (max-width: 480px) {
+  header .mx-auto {
+    padding-inline: .65rem !important;
+    padding-top: .65rem !important;
+  }
+
+  header p {
+    display: none;
+  }
+
+  header h1 {
+    font-size: 1rem !important;
+  }
+
+  #cardapio article button:not(.botao-categoria-cardapio),
+  #botaoFinalizarMontagem {
+    width: 100%;
+  }
+
+  #cardapio article strong {
+    font-size: 2rem !important;
+  }
+
+  .botao-whatsapp-flutuante {
+    bottom: 104px !important;
+    right: 12px !important;
+    height: 56px !important;
+    width: 56px !important;
+  }
+}
